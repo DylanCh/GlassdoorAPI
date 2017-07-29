@@ -1,0 +1,7 @@
+C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\bin\Debug\GlassdoorAPI.dll
+C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\bin\Debug\GlassdoorAPI.pdb
+C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\bin\Debug\RestSharp.dll
+C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\bin\Debug\RestSharp.xml
+C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\obj\Debug\GlassdoorAPI.csprojResolveAssemblyReference.cache
+C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\obj\Debug\GlassdoorAPI.dll
+C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\obj\Debug\GlassdoorAPI.pdb
