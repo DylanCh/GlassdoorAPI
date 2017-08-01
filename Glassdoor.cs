@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
+using System.Net;
+using System.Net.Sockets;
 
 namespace GlassdoorAPI
 {
     public class Glassdoor
     {
         HashSet<string> dataFormats = new HashSet<string>() { "json", "xml" };
+        GlassdoorSettings glassdoorSettings;
 
         /// <summary> default constructor, default format: JSON 
         /// </summary>
@@ -18,20 +21,20 @@ namespace GlassdoorAPI
         }
 
         /// <summary> constructor with 1 parameter
-        /// <param name="JobField">search query</param>
+        /// <param name="SearchQuery">search query</param>
         /// </summery>
-        public Glassdoor(string JobField) {
+        public Glassdoor(string SearchQuery) {
             this.DataFormat = "json";
-            this.JobField = JobField;            
+            this.SearchQuery = SearchQuery;            
         }
 
         /// <summary>
         /// Constructor with 2 parameters
         /// </summary>
-        /// <param name="JobField"> search query </param>
+        /// <param name="SearchQuery"> search query </param>
         /// <param name="DataFormat"> Data format (JSON or XML) </param>
-        public Glassdoor(string JobField, string DataFormat) {
-            this.JobField = JobField;
+        public Glassdoor(string SearchQuery, string DataFormat) {
+            this.SearchQuery = SearchQuery;
             DataFormat = DataFormat.ToLower();
             if (dataFormats.Contains(DataFormat))
                 this.DataFormat = DataFormat;
@@ -41,7 +44,7 @@ namespace GlassdoorAPI
         /// <summary>
         /// Search query
         /// </summary>
-        public string JobField { get; set; }
+        public string SearchQuery { get; set; }
 
         /// <summary>
         /// Data format, JSON or XML
@@ -53,14 +56,18 @@ namespace GlassdoorAPI
         /// </summary>
         /// <returns> The body of the response in plain String format </returns>
         public string Search() {
+            if (glassdoorSettings == null)
+                throw new NullReferenceException("Glassdoor API settings cannot be null");
+
             var client = new RestClient(
                baseUrl: string.Format(
-                    "http://api.glassdoor.com/api/api.htm?v=1&format={0}&t.p={1}&t.k={2}&action=employers&q={3}&userip=192.168.43.42&useragent=Mozilla%2F%2F4.0"
+                    "http://api.glassdoor.com/api/api.htm?v=1&format={0}&t.p={1}&t.k={2}&action=employers&q={3}&userip={4}&useragent=Mozilla%2F%2F4.0"
                     , DataFormat,
-                    GlassdoorCred.PARTNER_ID,
-                    GlassdoorCred.KEY, 
-                    JobField
-                    )
+                    glassdoorSettings._partner_id,
+                    glassdoorSettings._key,
+                    SearchQuery,
+                    IPAddress().ToString().Trim()
+                )
             );
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
@@ -68,12 +75,46 @@ namespace GlassdoorAPI
         }
 
         /// <summary>
+        /// Get local user IPAddress (TODO: get client IP address instead)
+        /// </summary>
+        /// <returns></returns>
+        IPAddress IPAddress()
+        {
+            if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+            {
+                throw new WebException("Client is not connected to the Internet");
+            }
+
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+
+            return host
+                .AddressList
+                .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+        }
+
+        /// <summary>
         /// Glassdoor API credentials
         /// </summary>
-        private static class GlassdoorCred
+        private class GlassdoorSettings
         {
-            public static readonly string PARTNER_ID = "[REPLACE]";
-            public static readonly string KEY = "[REPLACE]";
+            public string _partner_id { get; private set; }
+            public string _key { get; private set; }
+            public GlassdoorSettings(string _partner_id, string _key) {
+                if (_partner_id.Equals("") || _key.Equals(""))
+                    throw new ArgumentException("Partner ID and API Key must not be empty");
+                this._key = _key;
+                this._partner_id = _partner_id;
+            }
+            
+        }
+
+        /// <summary>
+        ///  This method sets the Glassdoor credentials (must be set before the Search() method invokation)
+        /// </summary>
+        /// <param name="partnerId">Partner ID</param>
+        /// <param name="key">API Key</param>
+        public void SetCredentials(string partnerId, string key) {
+            glassdoorSettings = new GlassdoorSettings(partnerId, key);
         }
     }
 

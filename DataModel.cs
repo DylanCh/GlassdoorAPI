@@ -97,5 +97,8 @@ namespace GlassdoorAPI
         public string status { get; set; }
         public string jsessionid { get; set; }
         public Response response { get; set; }
+        
     }
+
+    
 }
