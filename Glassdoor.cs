@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RestSharp;
 using System.Net;
 using System.Net.Sockets;
@@ -22,7 +20,7 @@ namespace GlassdoorAPI
 
         /// <summary> constructor with 1 parameter
         /// <param name="SearchQuery">search query</param>
-        /// </summery>
+        /// </summary>
         public Glassdoor(string SearchQuery) {
             this.DataFormat = "json";
             this.SearchQuery = SearchQuery;            

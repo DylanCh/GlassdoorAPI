@@ -1,7 +1,14 @@
-C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\bin\Debug\GlassdoorAPI.dll
-C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\bin\Debug\GlassdoorAPI.pdb
-C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\bin\Debug\RestSharp.dll
-C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\bin\Debug\RestSharp.xml
-C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\obj\Debug\GlassdoorAPI.csprojResolveAssemblyReference.cache
-C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\obj\Debug\GlassdoorAPI.dll
-C:\Users\Hanjun\Documents\Visual Studio 2017\Projects\GlassdoorAPI\GlassdoorAPI\obj\Debug\GlassdoorAPI.pdb
+C:/Users/Hanjun/Documents/Visual Studio 2017/Projects/GlassdoorAPI/GlassdoorAPI/bin/Debug/GlassdoorAPI.dll
+C:/Users/Hanjun/Documents/Visual Studio 2017/Projects/GlassdoorAPI/GlassdoorAPI/bin/Debug/GlassdoorAPI.pdb
+C:/Users/Hanjun/Documents/Visual Studio 2017/Projects/GlassdoorAPI/GlassdoorAPI/bin/Debug/RestSharp.dll
+C:/Users/Hanjun/Documents/Visual Studio 2017/Projects/GlassdoorAPI/GlassdoorAPI/bin/Debug/RestSharp.xml
+C:/Users/Hanjun/Documents/Visual Studio 2017/Projects/GlassdoorAPI/GlassdoorAPI/obj/Debug/GlassdoorAPI.csprojResolveAssemblyReference.cache
+C:/Users/Hanjun/Documents/Visual Studio 2017/Projects/GlassdoorAPI/GlassdoorAPI/obj/Debug/GlassdoorAPI.dll
+C:/Users/Hanjun/Documents/Visual Studio 2017/Projects/GlassdoorAPI/GlassdoorAPI/obj/Debug/GlassdoorAPI.pdb
+/Users/aaa/Projects/GlassdoorAPI/bin/Debug/GlassdoorAPI.dll
+/Users/aaa/Projects/GlassdoorAPI/bin/Debug/GlassdoorAPI.pdb
+/Users/aaa/Projects/GlassdoorAPI/bin/Debug/RestSharp.xml
+/Users/aaa/Projects/GlassdoorAPI/obj/Debug/GlassdoorAPI.csprojResolveAssemblyReference.cache
+/Users/aaa/Projects/GlassdoorAPI/obj/Debug/GlassdoorAPI.csproj.CoreCompileInputs.cache
+/Users/aaa/Projects/GlassdoorAPI/obj/Debug/GlassdoorAPI.dll
+/Users/aaa/Projects/GlassdoorAPI/obj/Debug/GlassdoorAPI.pdb
